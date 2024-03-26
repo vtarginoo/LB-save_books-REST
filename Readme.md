@@ -1,18 +1,20 @@
-# Minha API em REST
+# API Luke Books
 
-Este pequeno projeto faz parte do material diático da Disciplina **Desenvolvimento Full Stack Avançado** 
+Este pequeno projeto faz parte do material diático da Disciplina **Desenvolvimento Full Stack Avançado**
 
-O objetivo aqui é apresetar uma API emplementada seguindo o estilo REST.
+## Objetivo
 
+O objetivo desta API é possibilitar operações de inserção, atualização de status e exclusão de itens do front end Luke Books. Os status disponíveis para classificação dos livros são: Lido, Quero ler, Parei de Ler e Lendo.
 As principais tecnologias que serão utilizadas aqui é o:
- - [Flask](https://flask.palletsprojects.com/en/2.3.x/)
- - [SQLAlchemy](https://www.sqlalchemy.org/)
- - [OpenAPI3](https://swagger.io/specification/)
- - [SQLite](https://www.sqlite.org/index.html)
+
+- [Flask](https://flask.palletsprojects.com/en/2.3.x/)
+- [SQLAlchemy](https://www.sqlalchemy.org/)
+- [OpenAPI3](https://swagger.io/specification/)
+- [SQLite](https://www.sqlite.org/index.html)
 
 ---
-### Instalação
 
+### Instalação
 
 Será necessário ter todas as libs python listadas no `requirements.txt` instaladas.
 Após clonar o repositório, é necessário ir ao diretório raiz, pelo terminal, para poder executar os comandos descritos abaixo.
@@ -26,28 +28,30 @@ Após clonar o repositório, é necessário ir ao diretório raiz, pelo terminal
 Este comando instala as dependências/bibliotecas, descritas no arquivo `requirements.txt`.
 
 ---
+
 ### Executando o servidor
 
-
-Para executar a API  basta executar:
+Para executar a API basta executar:
 
 ```
 (env)$ flask run --host 0.0.0.0 --port 5000
 ```
 
 Em modo de desenvolvimento é recomendado executar utilizando o parâmetro reload, que reiniciará o servidor
-automaticamente após uma mudança no código fonte. 
+automaticamente após uma mudança no código fonte.
 
 ```
 (env)$ flask run --host 0.0.0.0 --port 5000 --reload
 ```
 
 ---
+
 ### Acesso no browser
 
 Abra o [http://localhost:5000/#/](http://localhost:5000/#/) no navegador para verificar o status da API em execução.
 
 ---
+
 ## Como executar através do Docker
 
 Certifique-se de ter o [Docker](https://docs.docker.com/engine/install/) instalado e em execução em sua máquina.
@@ -67,37 +71,40 @@ $ docker run -p 5000:5000 rest-api
 
 Uma vez executando, para acessar a API, basta abrir o [http://localhost:5000/#/](http://localhost:5000/#/) no navegador.
 
-
-
 ### Alguns comandos úteis do Docker
 
->**Para verificar se a imagem foi criada** você pode executar o seguinte comando:
+> **Para verificar se a imagem foi criada** você pode executar o seguinte comando:
 >
->```
->$ docker images
->```
+> ```
+> $ docker images
+> ```
 >
 > Caso queira **remover uma imagem**, basta executar o comando:
->```
->$ docker rmi <IMAGE ID>
->```
->Subistituindo o `IMAGE ID` pelo código da imagem
 >
->**Para verificar se o container está em exceução** você pode executar o seguinte comando:
+> ```
+> $ docker rmi <IMAGE ID>
+> ```
 >
->```
->$ docker container ls --all
->```
+> Subistituindo o `IMAGE ID` pelo código da imagem
 >
-> Caso queira **parar um conatiner**, basta executar o comando:
->```
->$ docker stop <CONTAINER ID>
->```
->Subistituindo o `CONTAINER ID` pelo ID do conatiner
+> **Para verificar se o container está em exceução** você pode executar o seguinte comando:
 >
+> ```
+> $ docker container ls --all
+> ```
+>
+> Caso queira **parar um container**, basta executar o comando:
+>
+> ```
+> $ docker stop <CONTAINER ID>
+> ```
+>
+> Subistituindo o `CONTAINER ID` pelo ID do conatiner
 >
 > Caso queira **destruir um conatiner**, basta executar o comando:
->```
->$ docker rm <CONTAINER ID>
->```
->Para mais comandos, veja a [documentação do docker](https://docs.docker.com/engine/reference/run/).
+>
+> ```
+> $ docker rm <CONTAINER ID>
+> ```
+>
+> Para mais comandos, veja a [documentação do docker](https://docs.docker.com/engine/reference/run/).
