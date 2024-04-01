@@ -17,8 +17,7 @@ association_table_industry_identifier = Table('association_industry_identifier',
     Column('industry_identifier_id', Integer, ForeignKey('book_lib_industry_identifiers.id')),
 )
 
-# Adicione esta linha para criar a tabela de associação entre BookInfo e ImageLinks
 association_table_image_links = Table('association_image_links', Base.metadata,
     Column('book_id', Integer, ForeignKey('book_lib.pk_book')),
-    Column('image_links_id', Integer, ForeignKey('book_lib_image_links.id'))
+    Column('image_links_id', Integer, ForeignKey('book_lib_image_links.id')),
 )

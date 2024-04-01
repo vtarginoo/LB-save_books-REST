@@ -29,6 +29,8 @@ class BookInfo(Base):
     language = Column(String)
     status = Column(String)
 
+    user_id = Column(Integer)
+
     dataInsercao = Column(DateTime, default=datetime.now())
 
     # Estabelecendo relacionamentos 
@@ -38,9 +40,9 @@ class BookInfo(Base):
     industryIdentifiers = relationship('IndustryIdentifier', secondary=association_table_industry_identifier, backref='books')
     imageLinks = relationship('ImageLinks', secondary=association_table_image_links, backref='books', uselist=False)
     
-    __table_args__ = (UniqueConstraint("title","idGoogle", name="book_unique_id"),)
+    __table_args__ = (UniqueConstraint("idGoogle","user_id", name="book_unique_id"),)
 
-    def __init__(self, idGoogle, title, subtitle, publisher, publishedDate, description, pageCount, printType, averageRating, ratingsCount, language, status, dataInsercao=None):
+    def __init__(self, idGoogle, title, subtitle, publisher, publishedDate, description, pageCount, printType, averageRating, ratingsCount, language, status,user_id ,dataInsercao=None):
         """
         Cria um BookInfo
 
@@ -62,6 +64,7 @@ class BookInfo(Base):
             industryIdentifiers: identificadores da indústria do livro
             imageLinks: links de imagens do livro
             dataInsercao: data de quando o livro foi inserido à base
+            user_id: ID do usuário associado ao livro
         """
             
         self.idGoogle = idGoogle
@@ -77,6 +80,8 @@ class BookInfo(Base):
         self.ratingsCount = ratingsCount
         self.language = language
         self.status = status
+        self.user_id = user_id
+        
         
 
 def to_dict(self):
@@ -95,6 +100,8 @@ def to_dict(self):
         "ratingsCount": self.ratingsCount,
         "language": self.language,
         "status": self.status,
+        "user_id": self.user_id,
+
         "dataInsercao": self.dataInsercao,
         "autor": [autor.to_dict() for autor in self.autor],
         "category": [category.to_dict() for category in self.category],

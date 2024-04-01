@@ -1,14 +1,15 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy.orm import relationship
 from models import Base
 
 class ImageLinks(Base):
     """
-    Modelo para armazenar informações sobre os links das imagens dos livros.
+    Modelo para armazenar informações sobre os links de imagem dos livros.
 
     Attributes:
         id (int): ID único do link de imagem.
-        smallThumbnail (str): URL da miniatura pequena da imagem.
-        thumbnail (str): URL da miniatura da imagem.
+        smallThumbnail (str): URL da miniatura pequena.
+        thumbnail (str): URL da miniatura.
     """
     __tablename__ = 'book_lib_image_links'
 
@@ -22,10 +23,10 @@ class ImageLinks(Base):
 
     def to_dict(self):
         return {
-            'id': self.id,
-            'smallThumbnail': self.smallThumbnail,
-            'thumbnail': self.thumbnail
+            "id": self.id,
+            "smallThumbnail": self.smallThumbnail,
+            "thumbnail": self.thumbnail
         }
 
     def __repr__(self):
-        return f"ImageLinks(smallThumbnail='{self.smallThumbnail}', thumbnail='{self.thumbnail}')"
+        return f"ImageLink(smallThumbnail='{self.smallThumbnail}', thumbnail='{self.thumbnail}')"

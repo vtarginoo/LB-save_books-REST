@@ -25,6 +25,7 @@ class BookInfoSchema(BaseModel):
     ratingsCount: int = 0
     language: str = "en"
     status: str = "Lido"
+    
 
 class BookInfoViewSchema(BaseModel):
     """ Define como um livro será retornado.
@@ -47,6 +48,7 @@ class BookInfoViewSchema(BaseModel):
     ratingsCount: int = 0
     language: str = "en"
     status: str = "Lido"
+    user_id: str = 1
     
 
 class ListagemBookInfoSchema(BaseModel):

@@ -39,6 +39,7 @@ def apresenta_livro(livro: BookInfo):
         "ratingsCount": livro.ratingsCount,
         "language": livro.language,
         "status": livro.status,
+        "user_id":livro.user_id
          
     }
 
@@ -79,6 +80,7 @@ def apresenta_livros(livros: List[BookInfo]):
             "ratingsCount": livro.ratingsCount,
             "language": livro.language,
             "status": livro.status,
+            
         })
 
     return {"livros": result}
